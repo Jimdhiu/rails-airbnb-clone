@@ -1,1 +1,10 @@
 <h1>index boat</h1>
+
+<ul>
+  <% @boats.each do |boat| %>
+    <li>
+    <%= boat.name %>
+    <%= boat.description %>
+    </li>
+  <% end %>
+</ul>
