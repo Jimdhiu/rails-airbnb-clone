@@ -1,2 +1,10 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<%= render '/layouts/banner' %>
+
+<%= simple_form_for :index, url: boats_path do |f| %>
+  <%= f.input :address , placeholder: "Où vous voulez louer"%>
+  <%= f.input :category, collection: @categories, prompt: "Select category"%>
+  <%= f.submit %>
+<% end %>
+
+
