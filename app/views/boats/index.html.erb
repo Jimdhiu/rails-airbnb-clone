@@ -5,6 +5,7 @@
     <% @boats.each do |boat| %>
     <li>
       <%= boat.name %>
+      <%= link_to "voir", boat_path(boat) %>
     </li>
     <% end %>
   </ul>
