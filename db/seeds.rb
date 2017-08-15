@@ -24,13 +24,13 @@ mathieu = User.create(email: "mathieu@monterauxarbres.com", password: "Coupertai
 sangohan = User.create(email: "sangohan@japan-university.com", password: "Ultimategohan" )
 
 
-slice =  Boat.create(name: "Slice of life", description: "ideal for quiet murder", category: cat, user: dexter)
-wake =  Boat.create(name: "Wake Paradise", description: "fastest sport boat for skilled wakeboarders", category: sport, user: jorge)
-mich =  Boat.create(name: "Belgium terror", description: "Ideal for belgium billionaires looking for russian models", category: opt, user: michel)
-abs =  Boat.create(name: "Abus de bien social", description: "For compagny trips with nice employees", category: semi, user: jimmy)
-nichons =  Boat.create(name: "Gros tétés", description: "Partouze en pleine mer", category: voile, user: adrien)
-criques =  Boat.create(name: "Creek explorer", description: "Pour la pèche en famille et l'exploration des criques", category: rigide, user: mathieu)
-futur =  Boat.create(name: "Univers explorer", description: "Voyager à travers l'univers", category: yatch, user: sangohan)
+slice =  Boat.create(name: "Slice of life", description: "ideal for quiet murder", category: cat, user: dexter, address: "Miami", capacity: 3, price: 500.00, caution: 2000, size: 9.35, horse_power: 200.00  )
+wake =  Boat.create(name: "Wake Paradise", description: "fastest sport boat for skilled wakeboarders", category: sport, user: jorge, address: "Biarritz", capacity: 5, price: 1000.00, caution: 4000, size: 8.5, horse_power: 500.00)
+mich =  Boat.create(name: "Belgium terror", description: "Ideal for belgium billionaires looking for russian models", category: opt, user: michel, address: "Miami", capacity: 2, price: 10000.00, caution: 50000, size: 1.35, horse_power: 0.00)
+abs =  Boat.create(name: "Abus de bien social", description: "For compagny trips with nice employees", category: semi, user: jimmy, address: "Bordeaux", capacity: 8, price: 800.00, caution: 2000, size: 15.35, horse_power: 400.00)
+nichons =  Boat.create(name: "Gros tétés", description: "Partouze en pleine mer", category: voile, user: adrien, address: "Miami", capacity: 20, price: 7000.00, caution: 200000, size: 20.35, horse_power: 2000.00)
+criques =  Boat.create(name: "Creek explorer", description: "Pour la pèche en famille et l'exploration des criques", category: rigide, user: mathieu, address: "France", capacity: 5, price: 500.00, caution: 2000, size: 10.35, horse_power: 300.00)
+futur =  Boat.create(name: "Univers explorer", description: "Voyager à travers l'univers", category: yatch, user: sangohan, address: "Miami", capacity: 30, price: 15000.00, caution: 200000, size: 40.35, horse_power: 70000.00)
 
 
 
