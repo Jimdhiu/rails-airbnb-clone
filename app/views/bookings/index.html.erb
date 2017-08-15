@@ -1,6 +1,10 @@
 <h1>List all my bookings</h1>
-
-<% @bookings.each do |booking| %>
-<%= booking.boat.name%>
-<%= link_to  "Consult", booking_path(booking)  %>
-<%end %>
+<ul>
+  <% @bookings.each do |booking| %>
+    <li>
+    <%= booking.boat.name%>
+    <%= link_to  "Consult", booking_path(booking)  %>
+    <%= link_to "Delete", booking_path(booking), method: :delete %>
+    </li>
+  <%end %>
+</ul>
