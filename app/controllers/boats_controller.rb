@@ -1,5 +1,6 @@
 class BoatsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show]
+
+  skip_before_action :authenticate_user!, only: [:show, :index]
 
   def new
      @boat = Boat.new
@@ -24,11 +25,15 @@ class BoatsController < ApplicationController
     end
   end
 
+
+  def show
+    @boat = Boat.find(params[:id])
+  end
+
   private
 
   def boat_params
     params.require(:boat).permit(:name, :description, :category_id, :address, :capacity, :price, :caution, :size, :horse_power)
   end
-
 
 end
