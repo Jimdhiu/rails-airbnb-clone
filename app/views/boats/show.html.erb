@@ -7,7 +7,7 @@
 <p>size<%= @boat.size %></p>
 <p>Horse power<%= @boat.horse_power %></p>
 
-<%= simple_form_for [@boat, @booking], url: bookings_path, :method => :post do |f| %>
+<%= simple_form_for [@boat, @booking], url: boat_bookings_path, :method => :post do |f| %>
   <%= f.submit "Book this boat", class: "btn btn-success" %>
 <% end %>
 
