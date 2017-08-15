@@ -8,10 +8,11 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-  def new
-  end
 
   def create
+    @booking = Booking.new()
+    @booking.user = current_user
+    @booking.boat = Boat.find(params[:id])
   end
 
   def edit
@@ -23,6 +24,12 @@ class BookingsController < ApplicationController
   def destroy
   end
 
+
+  private
+
+  def booking_params
+    params.require(:booking).permit(:boat_id)
+  end
 
 
 end
