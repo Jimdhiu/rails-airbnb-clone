@@ -16,6 +16,14 @@ class BoatsController < ApplicationController
     end
   end
 
+  def index
+    if params[:search]
+      @boats = Boat.where(address: params[:search][:address], category_id: params[:search][:category_id])
+    else
+      @boats = Boat.all
+    end
+  end
+
   private
 
   def boat_params

@@ -1,0 +1,14 @@
+<h1>Votre recherche</h1>
+
+<% if @boats.present? %>
+  <%= render @boats %>
+<% else %>
+  <p>There are no boats.</p>
+  <ul>
+  <% @boats.each do |boat| %>
+    <li>
+      <%= boat.name %>
+    </li>
+  <% end %>
+  </ul>
+<% end %>

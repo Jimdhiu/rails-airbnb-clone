@@ -1,10 +1,8 @@
 
 <%= render '/layouts/banner' %>
 
-<%= simple_form_for :index, url: boats_path do |f| %>
+<%= simple_form_for :search, url: boats_path, :method => :get do |f| %>
   <%= f.input :address , placeholder: "Où vous voulez louer"%>
-  <%= f.input :category, collection: @categories, prompt: "Select category"%>
+  <%= f.input :category_id, collection: @categories, prompt: "Select category"%>
   <%= f.submit %>
 <% end %>
-
-
