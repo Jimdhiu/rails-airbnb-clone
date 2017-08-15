@@ -1,6 +1,6 @@
 class BoatsController < ApplicationController
 
-  skip_before_action :authenticate_user!, only: [:show, :index]
+  skip_before_action :authenticate_user!, only: [:show]
 
   def index
     @boats = Boat.all
@@ -20,8 +20,6 @@ class BoatsController < ApplicationController
       render :new
     end
   end
-
-
 
   def show
     @boat = Boat.find(params[:id])
