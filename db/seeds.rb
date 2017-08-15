@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-
 cat = Category.create(name: "Catamaran")
 sport = Category.create(name: "Waterpsorts")
 opt = Category.create(name: "Optimiste")

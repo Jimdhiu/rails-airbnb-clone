@@ -1,0 +1,6 @@
+<h1>List all my bookings</h1>
+
+<% @bookings.each do |booking| %>
+<%= booking.boat.name%>
+<%= link_to  "Consult", booking_path(booking)  %>
+<%end %>
