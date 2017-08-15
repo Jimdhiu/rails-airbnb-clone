@@ -2,6 +2,10 @@
   <div class="banner-content">
     <h1>Rboat</h1>
     <p>The best way to enjoy your day</p>
-    <a class="btn btn-primary btn-lg">Start now</a>
+    <%= simple_form_for :search, url: boats_path, :method => :get do |f| %>
+    <%= f.input :address , placeholder: "Où vous voulez louer"%>
+    <%= f.input :category_id, collection: @categories, prompt: "Select category"%>
+    <%= f.submit class:"btn btn-info"%>
+<% end %>
   </div>
 </div>
