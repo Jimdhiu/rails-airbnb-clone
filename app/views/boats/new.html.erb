@@ -4,12 +4,12 @@
        <div class="text-center">
         <h1>Add a boat</h1>
         </div>
-       <%= simple_form_for [@boat] do |b| %>
+       <%= simple_form_for @boat do |b| %>
          <%= b.input :name %>
          <%= b.input :description %>
          <%= b.input :price %>
          <%= b.input :caution %>
-         <%= b.input :category_id %>
+         <%= b.input :category_id, collection: @categories, prompt: "Select category"%>
          <%= b.input :address %>
          <%= b.input :capacity %>
          <%= b.input :size %>

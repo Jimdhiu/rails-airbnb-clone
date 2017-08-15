@@ -1,12 +1,13 @@
 class BoatsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new, :show]
+  skip_before_action :authenticate_user!, only: [:show]
 
   def new
      @boat = Boat.new
+     @categories = Category.all
   end
 
   def create
-    @boat = Boat.new(boat_params)
+    @boat = current_user.boats.build(boat_params)
     @boat.save
     if @boat.save
       redirect_to boat_path(@boat)
