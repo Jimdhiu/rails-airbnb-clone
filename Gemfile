@@ -4,11 +4,17 @@ ruby '2.3.4'
 gem 'devise'
 
 gem 'figaro'
+gem 'carrierwave', '~> 0.11.2'
 gem 'jbuilder', '~> 2.0'
 gem 'pg'
 gem 'puma'
 gem 'rails', '5.0.5'
 gem 'redis'
+
+gem 'cloudinary', '1.1.7'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+gem 'coffee-rails'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
