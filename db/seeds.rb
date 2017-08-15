@@ -7,13 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-  cat = Category.create(name: "Catamaran")
-  sport = Category.create(name: "Waterpsorts")
-  opt = Category.create(name: "Optimiste")
-  semi = Category.create(name: "Semi-rigide")
-  voile = Category.create(name: "Voilier")
-  rigide = Category.create(name: "Rigide motorisé")
-  yatch = Category.create(name: "Yatch")
+
+cat = Category.create(name: "Catamaran")
+sport = Category.create(name: "Waterpsorts")
+opt = Category.create(name: "Optimiste")
+semi = Category.create(name: "Semi-rigide")
+voile = Category.create(name: "Voilier")
+rigide = Category.create(name: "Rigide motorisé")
+yatch = Category.create(name: "Yatch")
 
 dexter = User.create(email: "dexter@slice.com", password: "Galopine56" )
 jorge = User.create(email: "jorge@surferfacile.com", password: "Bagarre93" )
@@ -31,8 +32,6 @@ abs =  Boat.create(name: "Abus de bien social", description: "For compagny trips
 nichons =  Boat.create(name: "Gros tétés", description: "Partouze en pleine mer", category: voile, user: adrien, address: "Miami", capacity: 20, price: 7000.00, caution: 200000, size: 20.35, horse_power: 2000.00)
 criques =  Boat.create(name: "Creek explorer", description: "Pour la pèche en famille et l'exploration des criques", category: rigide, user: mathieu, address: "France", capacity: 5, price: 500.00, caution: 2000, size: 10.35, horse_power: 300.00)
 futur =  Boat.create(name: "Univers explorer", description: "Voyager à travers l'univers", category: yatch, user: sangohan, address: "Miami", capacity: 30, price: 15000.00, caution: 200000, size: 40.35, horse_power: 70000.00)
-
-
 
 
 
