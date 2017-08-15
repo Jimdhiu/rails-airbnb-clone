@@ -2,10 +2,6 @@ class BoatsController < ApplicationController
 
   skip_before_action :authenticate_user!, only: [:show, :index]
 
-  def index
-    @boats = Boat.all
-  end
-
   def new
      @boat = Boat.new
      @categories = Category.all
@@ -21,6 +17,13 @@ class BoatsController < ApplicationController
     end
   end
 
+  def index
+    @boats = []
+    if params[:search]
+      @boats = Boat.where(address: params[:search][:address], category_id: params[:search][:category_id])
+    end
+    @boats = Boat.all if @boats.empty?
+  end
 
 
   def show
