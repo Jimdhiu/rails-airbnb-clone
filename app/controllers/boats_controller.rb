@@ -18,11 +18,11 @@ class BoatsController < ApplicationController
   end
 
   def index
+    @boats = []
     if params[:search]
       @boats = Boat.where(address: params[:search][:address], category_id: params[:search][:category_id])
-    else
-      @boats = Boat.all
     end
+    @boats = Boat.all if @boats.empty?
   end
 
 
