@@ -1,6 +1,7 @@
 class Boat < ApplicationRecord
   belongs_to :user
   belongs_to :category
+  has_many :boat_options
 
 
 
