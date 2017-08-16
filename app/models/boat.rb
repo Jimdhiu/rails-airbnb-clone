@@ -4,7 +4,8 @@ class Boat < ApplicationRecord
   has_many :boat_options, dependent: :destroy
   has_many :bookings, dependent: :nullify
 
-
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 
   def self.search(search)
     where("address LIKE ?", "%#{search}%")
