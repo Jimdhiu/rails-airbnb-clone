@@ -3,11 +3,13 @@
   <div class="row">
 
       <% @boats.each do |boat| %>
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <%= boat.name %>
-      <%= image_tag "#{boat.photo}" %>
-      <%= link_to "voir", boat_path(boat) %>
-    </div>
+      <%= link_to boat_path(boat) do %>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+        <%= boat.name %>
+        <%= image_tag "#{boat.photo}" %>
+
+          </div>
       <% end %>
+    <% end %>
   </div>
 </div>
