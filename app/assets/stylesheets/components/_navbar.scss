@@ -29,6 +29,13 @@
   justify-content: space-between;
 }
 
+.navbar-actions {
+  display: flex;
+  width: 250px;
+  align-items: center;
+  justify-content: space-between;
+}
+
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;

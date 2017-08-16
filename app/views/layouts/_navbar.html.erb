@@ -1,20 +1,22 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-    <a href="/" class="navbar-wagon-brand">
+    <a href="/" class="navbar-wagon-brand" id="logo-name">
       <img src="http://www.artistick.com/media/catalog/product/cache/1/image/1000x900/9df78eab33525d08d6e5fb8d27136e95/4/6/464-voilier.png" alt="logo">
+       RBoat
     </a>
-    <h2 id="logo-police">RBoat</h2>
+    <!-- <h2 id="logo-police">RBoat</h2> -->
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <% if user_signed_in? %>
-
-    <%= link_to "Add a boat", new_boat_path, id:"navbar-btn" %>
+    <div class="navbar-actions">
+      <%= link_to "My bookings", bookings_path%>
+      <%= link_to "Add a boat", new_boat_path, id:"navbar-btn" %>
+    </div>
     <div class="dropdown">
       <img src="https://cdn1.iconfinder.com/data/icons/unique-round-blue/93/user-512.png" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li><a href="">Profile</a></li>
-        <li><a href="#">Dashboard</a></li>
         <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
       </ul>
     </div>
