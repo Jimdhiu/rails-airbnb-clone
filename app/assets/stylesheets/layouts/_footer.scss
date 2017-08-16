@@ -1,0 +1,42 @@
+.footer {
+  background-color: lightgrey;
+  display: flex;
+  justify-content: space-between;
+  bottom: 0px;
+}
+
+.reseaux-sociaux {
+  padding: 0px 25px;
+  margin-top: 25px;
+
+  a {
+    color: #65c3df;
+
+    &:hover {
+      color: #58acc4;
+    }
+  }
+}
+
+.copyright {
+  color: #65c3df;
+  padding: 0px 25px;
+  margin-top: 25px;
+}
+
+.pages {
+  // padding: 15px 15px;
+  margin-top: 15px;
+  display: flex;
+  text-align: center;
+  ul {
+    list-style-type: none;
+  }
+  a {
+    text-decoration: none;
+    color: #65c3df;
+    &:hover {
+      color: #58acc4;
+    }
+  }
+}
