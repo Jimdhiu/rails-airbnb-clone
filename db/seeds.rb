@@ -18,19 +18,20 @@ puts "----------------------"
 
 
 
-voilier = Category.create(name: "Voilier")
-moteur = Category.create(name: "Moteur")
+
 
 
 100.times do
   first_name = Faker::Name.first_name
-  last_name = Faker::Name.unique.clear
+  last_name = Faker::Name.last_name
   user = User.create(first_name: first_name , last_name: last_name,
               email: "#{first_name}.#{last_name}@gmail.com",
               password: "password", status: ["host", "client"].sample)
+  p user
   if user.status == "host"
-    Boat.create(name: Faker::DragonBall.character, description: Faker::Lorem.sentence)
-
+    boat = Boat.create(name: Faker::DragonBall.character, description: Faker::Lorem.sentence,
+                      user: user)
+    p boat
   end
 end
 
