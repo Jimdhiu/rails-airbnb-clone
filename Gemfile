@@ -24,11 +24,9 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
-<<<<<<< HEAD
-gem "geocoder"
-=======
+gem 'geocoder'
 gem 'faker'
->>>>>>> master
+
 
 group :development, :test do
 
