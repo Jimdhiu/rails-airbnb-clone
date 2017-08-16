@@ -5,7 +5,7 @@
   transition: all 0.3s ease;
   margin-top: 0px;
   height: 0px;
-  padding: 0px px;
+  padding: 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -48,8 +48,8 @@
 
 #navbar-btn {
   color: white;
-  border: 1px solid blue;
-  padding: 10px;
+  border: 1px solid ;
+  padding: 5px;
   margin-right: 20px;
   background-color: #4d94ff;
   border-radius: 5px;
@@ -57,6 +57,11 @@
     background-color: #0033cc;
     text-decoration: none;
   }
+}
+
+#logo-police {
+  margin-right: 850px;
+  color: #1A2250;
 }
 
 /* Dropdown menu */

@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @categories = Category.all
+    @boats = Boat.all
   end
 
 end
