@@ -2,7 +2,7 @@
   <div class="banner-search">
     <h2>The best way to enjoy your day</h2>
       <%= simple_form_for :search, url: boats_path, :method => :get do |f| %>
-        <%= f.input :address , placeholder: "Où vous voulez louer", label: false %>
+        <%= f.input :address ,input_html: { id: 'boat_address' }, placeholder: "Où vous voulez louer", label: false %>
         <%= f.input :category_id, collection: @categories, as: :check_boxes, prompt: "Select category", label: false%>
         <%= f.submit 'search', class:"btn btn-info"%>
       <% end %>
