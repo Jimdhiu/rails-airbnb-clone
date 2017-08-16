@@ -1,10 +1,10 @@
 <div class="banner" style="background-image: linear-gradient(-150deg, rgba(0,101,168,0) 0%, rgba(0,36,61,0) 0%), url('http://eventsboat.com/wp-content/uploads/2015/11/eventsboat1-Copie.jpg');">
   <div class="banner-search">
     <h2>The best way to enjoy your day</h2>
-    <%= simple_form_for :search, url: boats_path, :method => :get do |f| %>
-      <%= f.input :address, placeholder: "Où vous voulez louer", input_html: { id: 'boat_address' } %>
-      <%= f.input :category_id, collection: @categories, prompt: "Select category"%>
-      <%= f.submit 'search', class:"btn btn-info"%>
-    <% end %>
+      <%= simple_form_for :search, url: boats_path, :method => :get do |f| %>
+        <%= f.input :address ,input_html: { id: 'boat_address' }, placeholder: "Où vous voulez louer", label: false %>
+        <%= f.input :category_id, collection: @categories, as: :check_boxes, prompt: "Select category", label: false%>
+        <%= f.submit 'search', class:"btn btn-info"%>
+      <% end %>
   </div>
 </div>
