@@ -58,7 +58,7 @@ puts "-----------------"
     p boat
   else
     boats = Boat.all
-    boat = Boat.find(rand(1..boats.size))
+    boat = Boat.all.to_a.sample
 
     Booking.create(user: user, boat: boat)
   end
