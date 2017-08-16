@@ -1,12 +1,29 @@
 <h1>Votre recherche</h1>
+<div class="container">
+  <div class="row">
 
-
-  <ul>
-    <% @boats.each do |boat| %>
-    <li>
+      <% @boats.each do |boat| %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
       <%= boat.name %>
       <%= link_to "voir", boat_path(boat) %>
-    </li>
+    </div>
     <% end %>
-  </ul>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+    <% @boats.each do |boat| %>
+
+      <%= boat.name %>
+      <%= link_to "voir", boat_path(boat) %>
+
+    <% end %>
+
 
