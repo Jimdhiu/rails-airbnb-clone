@@ -5,25 +5,9 @@
       <% @boats.each do |boat| %>
     <div class="col-xs-12 col-sm-6 col-md-4">
       <%= boat.name %>
+      <%= image_tag "#{boat.photo}" %>
       <%= link_to "voir", boat_path(boat) %>
     </div>
-    <% end %>
-
-
+      <% end %>
   </div>
 </div>
-
-
-
-
-
-
-
-    <% @boats.each do |boat| %>
-
-      <%= boat.name %>
-      <%= link_to "voir", boat_path(boat) %>
-
-    <% end %>
-
-
