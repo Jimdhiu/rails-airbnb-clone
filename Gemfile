@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.3.4'
 
 gem 'devise'
+gem 'omniauth-facebook'
 
 gem 'figaro'
 gem 'carrierwave', '~> 0.11.2'
@@ -23,9 +24,14 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
+<<<<<<< HEAD
 gem "geocoder"
+=======
+gem 'faker'
+>>>>>>> master
 
 group :development, :test do
+
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'web-console', '>= 3.3.0'
