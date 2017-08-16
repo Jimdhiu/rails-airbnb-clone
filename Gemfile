@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.3.4'
 
 gem 'devise'
+gem 'omniauth-facebook'
 
 gem 'figaro'
 gem 'carrierwave', '~> 0.11.2'
