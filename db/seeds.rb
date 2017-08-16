@@ -43,7 +43,7 @@ puts "-----------------"
   if user.status == "host"
     boat = Boat.create(name: Faker::DragonBall.character, description: Faker::Lorem.sentence,
                       user: user,
-                      address: ["Arcachon", "Biarritz", "Lorient", "La Rochelle"].sample,
+                      address: ["Arcachon", "Biarritz", "Lorient", "La Rochelle","Bordeaux"].sample,
                       capacity: rand(2..15),
                       price: rand(150..500),
                       caution: rand(10..50) * 100,
