@@ -18,7 +18,7 @@
     <!-- insert <div class="card"> -->
     <div class="col-xs-12 col-sm-4">
       <div class="card-link"><%=link_to boat_path(@boats[-2]) do%>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @boats[-1].photo.path %>')">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @boats[-2].photo.path %>')">
           <div class="card-price"><%=@boats[-2].price %> €</div>
           <div class="card-address"><%= @boats[-2].address %></div>
           <div class="card-description">
@@ -32,7 +32,7 @@
       <!-- insert <div class="card"> -->
     <div class="col-xs-12 col-sm-4">
       <div class="card-link"><%=link_to boat_path(@boats[-3]) do%>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @boats[-1].photo.path %>')">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @boats[-3].photo.path %>')">
           <div class="card-price"><%=@boats[-3].price%> €</div>
           <div class="card-address"><%= @boats[-3].address %></div>
           <div class="card-description">
