@@ -9,6 +9,11 @@
 <img src="<%= @boat.photo %>" alt="background-image-default">
 
 <% if current_user != @boat.user %>
+    <div class="input-daterange input-group" id="datepicker">
+      <input type="text" class="input-sm form-control" name="start" />
+      <span class="input-group-addon">to</span>
+      <input type="text" class="input-sm form-control" name="end" />
+    </div>
 
   <%= simple_form_for [@boat, @booking], url: boat_bookings_path(@boat), :method => :post do |f| %>
     <%= f.submit "Book this boat", class: "btn btn-success" %>
