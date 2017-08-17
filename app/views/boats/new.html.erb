@@ -4,17 +4,18 @@
        <div class="text-center">
         <h1>Add a boat</h1>
         </div>
-       <%= simple_form_for @boat do |b| %>
-         <%= b.input :name %>
-         <%= b.input :description %>
-         <%= b.input :price %>
-         <%= b.input :caution %>
-         <%= b.input :category_id, collection: @categories, prompt: "Select category"%>
-         <%= b.input :address %>
-         <%= b.input :capacity %>
-         <%= b.input :size %>
-         <%= b.input :horse_power %>
-         <%= b.submit class: "btn btn-primary" %>
+       <%= simple_form_for @boat do |f| %>
+         <%= f.input :name %>
+         <%= f.input :description %>
+         <%= f.input :price %>
+         <%= f.input :caution %>
+         <%= f.input :category_id, collection: @categories, prompt: "Select category"%>
+         <%= f.input :address %>
+         <%= f.input :capacity %>
+         <%= f.input :size %>
+         <%= f.input :horse_power %>
+         <%= f.input :photo, as: :attachinary %>
+         <%= f.submit class: "btn btn-primary" %>
        <% end %>
      </div>
  </div>
