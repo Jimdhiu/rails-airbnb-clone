@@ -23,7 +23,10 @@ class BoatsController < ApplicationController
     if params[:search]
       @boats = Boat.where(address: params[:search][:address], category_id: params[:search][:category_id])
     end
-    @boats = Boat.all if @boats.empty?
+    if @boats.empty?
+      @boats = Boat.all
+      @message = "Aucun résultat pour votre recherche. Voici tous les bateaux disponible ailleurs"
+    end
   end
 
 
