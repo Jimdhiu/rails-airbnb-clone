@@ -1,4 +1,4 @@
-<h1> <%= @boat.name %></h1>
+ <h1> <%= @boat.name %></h1>
 <p>Address<%= @boat.address %></p>
 <p><%= @boat.description %></p>
 <p>capacity<%= @boat.capacity %></p>
@@ -12,15 +12,20 @@
 <% end %>
 
 <% if current_user != @boat.user %>
+
+    <%= simple_form_for [@boat, @booking], url: boat_bookings_path(@boat), :method => :post do |f| %>
     <div class="input-daterange input-group" id="datepicker">
-      <input type="text" class="input-sm form-control" name="start" />
+      <!-- <input type="text" class="input-sm form-control" name="start" /> -->
+      <%= f.input_field :start_day, as: :string, class: 'input-sm form-control' %>
+
       <span class="input-group-addon">to</span>
-      <input type="text" class="input-sm form-control" name="end" />
+
+      <!-- <input type="text" class="input-sm form-control" name="end" /> -->
+      <%= f.input_field :end_day, as: :string, class: 'input-sm form-control' %>
     </div>
 
-  <%= simple_form_for [@boat, @booking], url: boat_bookings_path(@boat), :method => :post do |f| %>
-    <%= f.submit "Book this boat", class: "btn btn-success" %>
-  <% end %>
+      <%= f.submit "Book this boat", class: "btn btn-success" %>
+      <% end %>
 <% else %>
   <h3>It's your boat !</h3>
 <% end %>
