@@ -10,6 +10,7 @@ class BoatsController < ApplicationController
   def create
     @boat = current_user.boats.build(boat_params)
     @boat.save
+    flash[:notice] = "Votre bateau est maintenant en ligne"
     if @boat.save
       redirect_to boat_path(@boat)
     else
