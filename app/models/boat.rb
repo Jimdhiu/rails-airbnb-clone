@@ -3,6 +3,7 @@ class Boat < ApplicationRecord
   belongs_to :category
   has_many :boat_options, dependent: :destroy
   has_many :bookings, dependent: :nullify
+  has_attachment :photo
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
