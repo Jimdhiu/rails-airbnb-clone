@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
 
 
   def create
-    @booking = Booking.new()
+    @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.boat = Boat.find(params[:boat_id])
     @booking.save
@@ -33,7 +33,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:boat_id)
+    params.require(:booking).permit(:start_day, :end_day)
   end
 
 
