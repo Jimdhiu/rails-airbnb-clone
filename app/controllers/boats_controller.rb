@@ -10,6 +10,7 @@ class BoatsController < ApplicationController
   def create
     @boat = current_user.boats.build(boat_params)
     @boat.save
+    flash[:notice] = "Votre bateau est maintenant en ligne"
     if @boat.save
       redirect_to boat_path(@boat)
     else
@@ -20,12 +21,9 @@ class BoatsController < ApplicationController
   def index
     @boats = []
     if params[:search]
-      @boats = Boat.where(search_params)
+      @boats = Boat.where(address: params[:search][:address], category_id: params[:search][:category_id])
     end
-    if @boats.empty?
-      @boats = Boat.all
-      @message = "Aucun résultat pour votre recherche. Voici la liste de tous les bateaux disponibles"
-    end
+    @boats = Boat.all if @boats.empty?
   end
 
 
@@ -35,10 +33,6 @@ class BoatsController < ApplicationController
   end
 
   private
-
-  def search_params
-    params.require(:search).permit(:address, category_id: [])
-  end
 
   def boat_params
     params.require(:boat).permit(:name, :description, :category_id, :address, :capacity, :price, :caution, :size, :horse_power, :photo)

@@ -30,3 +30,36 @@
   background-color: rgba(0,0,0,.7);
   padding: 3rem .625rem 4.5rem;
 }
+
+.images_petit {
+  width: 70px;
+  height: 70px;
+}
+
+.custom-checkbox {
+  background-color: white;
+  color: black;
+  border: 1px solid ;
+  padding: 5px;
+  width: 200px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  margin: 2px;
+  &:hover {
+    background-color: #A9BCD0;
+  }
+}
+
+.blue input[type="checkbox"] {
+  display: none;
+}
+
+
+.blue input[type='checkbox']:checked + label .custom-checkbox {
+  background-color: #132457;
+  color: white;
+
+}
