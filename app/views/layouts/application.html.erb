@@ -17,7 +17,8 @@
 
     <%= render '/layouts/footer' %>
     <%= javascript_include_tag 'application' %>
-    <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=AIzaSyAslzO2IXtpOM6B6820rP7ld4nGehT0jlQ" %>
+    <%= cloudinary_js_config %>
+    <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_SERVER_KEY']}" %>
 
 <!--     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?libraries=places&key=GOOGLE_API_SERVER_KEY">

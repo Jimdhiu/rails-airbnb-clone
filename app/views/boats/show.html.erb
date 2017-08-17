@@ -6,9 +6,16 @@
 <p>caution<%= @boat.caution %></p>
 <p>size<%= @boat.size %></p>
 <p>Horse power<%= @boat.horse_power %></p>
-<img src="<%= @boat.photo %>" alt="background-image-default">
+<% if @boat.photo? %>
+  <%= cl_image_tag @boat.photo.path, width: 200, height: 300, crop: :fill %>
+<% end %>
 
 <% if current_user != @boat.user %>
+    <div class="input-daterange input-group" id="datepicker">
+      <input type="text" class="input-sm form-control" name="start" />
+      <span class="input-group-addon">to</span>
+      <input type="text" class="input-sm form-control" name="end" />
+    </div>
 
   <%= simple_form_for [@boat, @booking], url: boat_bookings_path(@boat), :method => :post do |f| %>
     <%= f.submit "Book this boat", class: "btn btn-success" %>
