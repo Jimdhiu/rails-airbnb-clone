@@ -1,48 +1,29 @@
 
 <div class="container">
   <div class="row">
+
     <div class="col-xs-12 col-sm-4">
       <div class="card-link"><%=link_to boat_path(@boats[-1]) do%>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @boats[-1].photo.path %>')">
+        <% if @boats[-1].photo? %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @boats[-1].photo.path %>')">
+        <% else %>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "no_boat_photo.png" %>')">
+        <% end %>
 
-          <div class="card-price"><%= @boats[-1].price %> €</div>
-          <div class="card-address"><%= @boats[-1].address %></div>
-          <div class="card-description">
-            <h2><%= @boats[-1].name %></h2>
-            <p>Evaluation ***</p>
+      <% end %>
+
+
+              <div class="card-price"><%= @boats[-1].price %> €</div>
+              <div class="card-address"><%= @boats[-1].address %></div>
+              <div class="card-description">
+                <h2><%= @boats[-1].name %></h2>
+                <p>Evaluation ***</p>
+              </div>
+            </div>
           </div>
-        </div>
-      <%end %>
       </div>
     </div>
-    <!-- insert <div class="card"> -->
-    <div class="col-xs-12 col-sm-4">
-      <div class="card-link"><%=link_to boat_path(@boats[-2]) do%>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @boats[-2].photo.path %>')">
-          <div class="card-price"><%=@boats[-2].price %> €</div>
-          <div class="card-address"><%= @boats[-2].address %></div>
-          <div class="card-description">
-            <h2><%=@boats[-2].name %></h2>
-            <p>Evaluations ****</p>
-          </div>
-        </div>
-      <%end %>
-      </div>
-    </div>
-      <!-- insert <div class="card"> -->
-    <div class="col-xs-12 col-sm-4">
-      <div class="card-link"><%=link_to boat_path(@boats[-3]) do%>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @boats[-3].photo.path %>')">
-          <div class="card-price"><%=@boats[-3].price%> €</div>
-          <div class="card-address"><%= @boats[-3].address %></div>
-          <div class="card-description">
-            <h2><%=@boats[-3].name %></h2>
-            <p>Evaluation ****</p>
-          </div>
-        </div>
-      <%end %>
-      </div>
-    </div>
+
 
   </div>
-</div>
+
