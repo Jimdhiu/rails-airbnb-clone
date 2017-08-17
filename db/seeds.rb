@@ -5,7 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+Booking.destroy_all
+puts "Destroy all Bookings"
+puts "----------------------"
 User.destroy_all
 puts "Destroy all Users"
 puts "----------------------"
@@ -49,7 +51,6 @@ puts "-----------------"
                       caution: rand(10..50) * 100,
                       size: rand(3..20),
                       horse_power: rand(9..300),
-                      photo: "http://images.boats.com/resize/1/55/51/5945551_20161026111138650_1_LARGE.jpg?t=1474478562000&w=900&h=900",
                       category: categories.sample )
     rand(3..options_string.size).times do
       BoatOption.create(boat: boat, option: options_object.sample)
