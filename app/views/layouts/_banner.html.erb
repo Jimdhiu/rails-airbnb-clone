@@ -3,8 +3,44 @@
     <h2>The best way to enjoy your day</h2>
       <%= simple_form_for :search, url: boats_path, :method => :get do |f| %>
         <%= f.input :address ,input_html: { id: 'boat_address' }, placeholder: "Où vous voulez louer", label: false %>
-        <%= f.input :category_id, collection: @categories, as: :check_boxes, prompt: "Select category", label: false%>
-        <%= f.submit 'search', class:"btn btn-info"%>
+
+        <div class="blue required search_category_id">
+          <input class="required" type="checkbox" id="search_category_id_1" name="search[category_id][]">
+          <label for="search_category_id_1">
+            <div class="custom-checkbox">
+              <img src="http://icon-icons.com/icons2/390/PNG/512/sailboat_38507.png" class="images_petit" alt="sailing icon">
+              Voilier
+            </div>
+          </label>
+          <input class="required" type="checkbox" id="search_category_id_2" name="search[category_id][]">
+          <label for="search_category_id_2">
+            <div class="custom-checkbox">
+              <img src="https://cdn3.iconfinder.com/data/icons/transport-05-set-of-ships-and-boats-1/110/Ships_and_boats_13-512.png" class="images_petit" alt="sailing icon">
+              Moteur
+            </div>
+          </label>
+        </div>
+
+      <%= f.submit 'search', class:"btn btn-info"%>
       <% end %>
   </div>
 </div>
+        <!-- <%= f.input :category_id, collection: @categories, as: :check_boxes, prompt: "Select category", label: false%> -->
+
+        <!-- <div class="form-group check_boxes required search_category_id">
+          <input type="hidden" name="search[category_id][]" value=""/>
+          <span class="checkbox">
+            <label for="search_category_id_1">
+              <img src="https://image.freepik.com/icones-gratuites/bateau-a-voile-de-forme-noir_318-36056.jpg" class="images_petit" alt="sailing icon">
+              <input class="check_boxes required" type="checkbox" value="1" name="search[category_id][]" id="search_category_id_1" />
+                Voilier
+            </label>
+          </span>
+          <span class="checkbox">
+            <label for="search_category_id_2">
+              <img src="http://poetshal18.nl/wp-content/uploads/2015/03/Icoon-boot.png" class="images_petit" alt="motor icon">
+              <input class="check_boxes required" type="checkbox" value="2" name="search[category_id][]" id="search_category_id_2" />
+                Moteur
+            </label>
+          </span>
+        </div> -->
