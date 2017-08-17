@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @categories = Category.all
-    @boats = Boat.all.to_a
+    @boats = Boat.last(3).to_a
   end
 
 end
