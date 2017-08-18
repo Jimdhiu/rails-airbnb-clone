@@ -1,0 +1,12 @@
+<div class="card-link">
+  <%= link_to boat_path(boat) do %>
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_or_default boat.photo %>')">
+      <div class="card-price"><%= boat.price %> €</div>
+      <div class="card-address"><%= boat.address %></div>
+      <div class="card-description">
+        <h2><%= boat.name %></h2>
+        <p>Evaluation ***</p>
+      </div>
+    </div>
+  <% end %>
+</div>
