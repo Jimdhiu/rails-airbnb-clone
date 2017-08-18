@@ -1,4 +1,9 @@
- <h1> <%= @boat.name %></h1>
+<% if @boat.photo? %>
+  <div class="banner-boats" style="background-image: linear-gradient(-150deg, rgba(0,101,168,0) 0%, rgba(0,36,61,0) 0%), url('<%= cl_image_path @boat.photo.path %>')">
+  </div>
+<% end %>
+
+<h1> <%= @boat.name %></h1>
 <p>Address<%= @boat.address %></p>
 <p><%= @boat.description %></p>
 <p>capacity<%= @boat.capacity %></p>
@@ -7,9 +12,8 @@
 <p>size<%= @boat.size %></p>
 <p>Category<%= @boat.category.name %></p>
 <p>Horse power<%= @boat.horse_power %></p>
-<% if @boat.photo? %>
-  <%= cl_image_tag @boat.photo.path, width: 200, height: 300, crop: :fill %>
-<% end %>
+
+
 
 <% if current_user != @boat.user %>
 
