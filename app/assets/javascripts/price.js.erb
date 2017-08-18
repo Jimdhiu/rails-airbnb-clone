@@ -13,8 +13,13 @@
         document.getElementById('days').innerHTML = number;
     }
 
-      var price = parseInt()
-      console.log();
+    var resultPrice = number * Number(document.getElementById('boat_price').innerHTML);
+    // var fullPrice = document.getElementById('price').innerHTML;
 
-      document.getElementById('price').innerHTML = number * Number(document.getElementById('boat_price').innerHTML);
+      if (isNaN(resultPrice)) {
+        document.getElementById('price').innerHTML = 0;
+      }
+      else {
+        document.getElementById('price').innerHTML = resultPrice;
+      }
     });
