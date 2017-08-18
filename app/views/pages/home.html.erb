@@ -1,3 +1,12 @@
 
 <%= render '/layouts/banner', categories: @categories %>
-<%= render '/layouts/card' %>
+
+<div class="container">
+  <div class="row">
+    <% @boats.each do |boat| %>
+      <div class="col-xs-12 col-sm-4">
+        <%= render "boats/boat", boat: boat %>
+      </div>
+    <% end %>
+  </div>
+</div>

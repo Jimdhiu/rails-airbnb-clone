@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
 
   def index
-    @bookings = Booking.where(user_id: current_user)
+    @bookings = current_user.bookings
   end
 
   def show
@@ -13,8 +13,12 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.boat = Boat.find(params[:boat_id])
-    @booking.save
-    render :show
+    if @booking.save
+      redirect_to booking_path(@booking)
+    else
+      @boat = @booking.boat
+      render 'boats/show'
+    end
   end
 
   def edit

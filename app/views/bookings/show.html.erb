@@ -1,5 +1,4 @@
 <h1>Detail of the booking</h1>
+<%= render '/boats/boat', boat: @booking.boat %>
 
-<%= @booking.boat.name %>
-<%= @booking.boat.user.email %>
-<%= @booking.boat.price %>
+<p>Vous venez de réserver ce bateau</p>

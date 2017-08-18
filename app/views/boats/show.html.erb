@@ -1,74 +1,71 @@
-<% if @boat.photo? %>
-  <div class="banner-boats" style="background-image: linear-gradient(-150deg, rgba(0,101,168,0) 0%, rgba(0,36,61,0) 0%), url('<%= cl_image_path @boat.photo.path %>')">
-  </div>
-<% end %>
-<div class="container">
-  <div class="row">
-      <div class="col-xs-12 col-sm-6 col-sm-offset-1">
-        <div class="user">
-          <div class="header-details">
-            <img class="avatar-small" src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png" />
+<div class="blueblue">
+  <% if @boat.photo? %>
+    <div class="banner-boats" style="background-image: linear-gradient(-150deg, rgba(0,101,168,0) 0%, rgba(0,36,61,0) 0%), url('<%= cl_image_path @boat.photo.path %>')">
+    </div>
+  <% end %>
+  <div class="">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-1">
+          <div class="user">
+            <div class="header-details">
+              <i class="nameicon" aria-hidden="true" id="user-icon"><p><%= @boat.name %></p></i>
+            </div>
           </div>
+            <div class="">
+              <p><i class="fa fa-map-marker" aria-hidden="true"></i><strong> Address : </strong><%= @boat.address %></p>
+              <p><strong> Category : </strong> <%= @boat.category.name %></p>
+              <p><strong> Horse power : </strong> <%= @boat.horse_power %></p>
+              <p><strong> Capacity : </strong> <%= @boat.capacity %></p>
+              <p><strong> Size : </strong> <%= @boat.size %></p>
+            </div>
         </div>
-          <div class="">
-            <p><i class="fa fa-map-marker" aria-hidden="true"></i><strong> Address : </strong><%= @boat.address %></p>
-          </div>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="booking-new text-center">
-          <p><strong>Price :</strong> <span id="boat_price"><%= @boat.price %></span> €</p>
-          <p><strong>Caution :</strong> <%= @boat.caution %> €</p>
-          <div class="form-inline">
+        <div class="col-xs-12 col-sm-4">
+          <div class="booking-new text-center">
+            <p><strong>Price :</strong> <span id="boat_price"><%= @boat.price %></span> €</p>
+            <p><strong>Caution :</strong> <%= @boat.caution %> €</p>
             <div class="form-inline">
-              <% if current_user != @boat.user %>
-                <%= simple_form_for [@boat, @booking], url: boat_bookings_path(@boat), :method => :post do |f| %>
-                  <div class="input-daterange input-group" id="datepicker">
-                    <!-- <input type="text" class="input-sm form-control" name="start" /> -->
-                    <p><strong>Date de début :</strong></p>
-                    <%= f.input_field :start_day, as: :string, class: 'input-sm form-control', id: 'start' %>
-                    <p><strong>Date de fin :</strong></p>
-                    <!-- <input type="text" class="input-sm form-control" name="end" /> -->
-                    <%= f.input_field :end_day, as: :string, class: 'input-sm form-control', id: 'end' %>
+              <div class="form-inline">
+                <% if current_user != @boat.user %>
+                  <%= simple_form_for [@boat, @booking], url: boat_bookings_path(@boat), :method => :post do |f| %>
+                    <div class="input-daterange input-group" id="datepicker">
+                      <!-- <input type="text" class="input-sm form-control" name="start" /> -->
+                      <p><strong>Date de début :</strong></p>
+                      <%= f.input_field :start_day, as: :string, class: 'input-sm form-control', id: 'start' %>
+                      <p><strong>Date de fin :</strong></p>
+                      <!-- <input type="text" class="input-sm form-control" name="end" /> -->
+                      <%= f.input_field :end_day, as: :string, class: 'input-sm form-control', id: 'end' %>
+                    </div>
+                    <div class="">
+                      <p><strong>Nombre de jours :</strong> <span id="days"></span></p>
+                      <p><strong>Prix total : </strong><span id="price"></span> €</p>
+                    <div class="margin">
+                      <%= f.submit "Book this boat", class: "btn btn-success" %>
+                      <% end %>
+                    </div>
                   </div>
-                  <div class="">
-                    <p><strong>Nombre de jours :</strong> <span id="days"></span></p>
-                    <p><strong>Prix total : </strong><span id="price"></span> €</p>
-                    <%= f.submit "Book this boat", class: "btn btn-success" %>
-                    <% end %>
-                  </div>
-              <% else %>
-                <h3>It's your boat !</h3>
-              <% end %>
+                <% else %>
+                  <h3>It's your boat !</h3>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+    </div>
   </div>
 </div>
-
-
 <div class="white-wrapper">
   <div class="horse-description">
     <div class="text-center">
-      <h3>The Boat</h3>
+      <h3>Description</h3>
       <div class="row">
-        <div class="col-xs-12 col-sm-4 col-lg-6">
-          <p><strong> Nom :</strong><%= @boat.name %></p>
-          <p><strong> Category : </strong> <%= @boat.category.name %></p>
-          <p><strong> Horse power : </strong> <%= @boat.horse_power %></p>
-          <p><strong> Capacity : </strong> <%= @boat.capacity %></p>
-          <p><strong> Size : </strong> <%= @boat.size %></p>
-        </div>
-        <div class="col-xs-12 col-sm-4 col-lg-6">
           <p><strong> Description : </strong> <%= @boat.description %></p>
-          <p><strong> Note moyenne:</strong>
+          <p><strong> Note moyenne: </strong>
             <i class="fa fa-star" aria-hidden="true" id="rating-1"></i>
             <i class="fa fa-star" aria-hidden="true" id="rating-1"></i>
             <i class="fa fa-star" aria-hidden="true" id="rating-1"></i>
             <i class="fa fa-star" aria-hidden="true" id="rating-1"></i>
             <i class="fa fa-star" aria-hidden="true" id="rating-1"></i>
            5</p>
-        </div>
       </div>
     </div>
   </div>
