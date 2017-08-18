@@ -25,7 +25,7 @@ categories = [voilier, moteur]
 puts "Categories created !"
 puts "--------------------"
 
-options_string = ["frigo", "coque amovible", "turbo boost", "bouteille de champagne",
+options_string = ["frigo", "", "turbo boost", "bouteille de champagne",
 "four", "équipe de rameur", "Laure Manaudou"]
 options_object = []
 options_string.each do |option|
@@ -35,35 +35,32 @@ puts "Options created !"
 puts "-----------------"
 
 
-100.times do
-  first_name = Faker::Name.first_name
-  last_name = Faker::Name.last_name
+
+  first_name = "Jean-Pierre"
+  last_name = "Durand"
   user = User.create(first_name: first_name , last_name: last_name,
               email: "#{first_name}.#{last_name}@gmail.com",
-              password: "password", status: ["host", "client"].sample)
+              password: "password", status: "host")
   p user
-  if user.status == "host"
-    boat = Boat.create(name: Faker::DragonBall.character, description: Faker::Lorem.sentence,
-                      user: user,
-                      address: ["Arcachon, France", "Biarritz, France", "Lorient, France", "La Rochelle, France","Bordeaux, France"].sample,
-                      capacity: rand(2..15),
-                      price: rand(150..500),
-                      caution: rand(10..50) * 100,
-                      size: rand(3..20),
-                      horse_power: rand(9..300),
-                      category: categories.sample )
-    rand(3..options_string.size).times do
-      BoatOption.create(boat: boat, option: options_object.sample)
-    end
 
-    p boat
-  else
-    boats = Boat.all
-    boat = Boat.all.to_a.sample
+  boat = Boat.create(name: "Flint", description: "Bateau rapide, facile à manier, idéal pour le sport",
+                    user: user,
+                    address: "Arcachon, France",
+                    capacity: 7,
+                    price: 500,
+                    caution: 4000,
+                    size: 10,
+                    horse_power: 500,
+                    category: moteur)
 
-    Booking.create(user: user, boat: boat)
-  end
+  BoatOption.create(boat: boat, option: options_object.sample)
 
-end
+
+  p boat
+
+
+
+  Booking.create(user: user, boat: boat)
+
 
 puts "$$$$$$$$$$$$$$$$$ YEAH !!! $$$$$$$$$$$$$$$$$$$$$"
