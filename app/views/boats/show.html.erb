@@ -1,31 +1,77 @@
- <h1> <%= @boat.name %></h1>
-<p>Address<%= @boat.address %></p>
-<p><%= @boat.description %></p>
-<p>capacity<%= @boat.capacity %></p>
-<p>price<%= @boat.price %></p>
-<p>caution<%= @boat.caution %></p>
-<p>size<%= @boat.size %></p>
-<p>Category<%= @boat.category.name %></p>
-<p>Horse power<%= @boat.horse_power %></p>
-<% if @boat.photo? %>
-  <%= cl_image_tag @boat.photo.path, width: 200, height: 300, crop: :fill %>
-<% end %>
+<div class="container">
+  <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-1">
+        <div class="user">
+          <div class="header-details">
+            <img class="avatar-small" src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png" />
+          </div>
+        </div>
+          <div class="">
+            <p><i class="fa fa-map-marker" aria-hidden="true"></i><strong> Address : </strong><%= @boat.address %></p>
+          </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="booking-new text-center">
+          <p><strong>Price :</strong> <%= @boat.price %> €</p>
+          <p><strong>Caution :</strong> <%= @boat.caution %> €</p>
+          <div class="form-inline">
+            <% if @boat.photo? %>
+              <%= cl_image_tag @boat.photo.path, width: 200, height: 300, crop: :fill %>
+            <% end %>
+            <div class="form-inline">
+              <% if current_user != @boat.user %>
+                <%= simple_form_for [@boat, @booking], url: boat_bookings_path(@boat), :method => :post do |f| %>
+                  <div class="input-daterange input-group" id="datepicker">
+                    <!-- <input type="text" class="input-sm form-control" name="start" /> -->
+                    <p><strong>Date de début :</strong></p>
+                    <%= f.input_field :start_day, as: :string, class: 'input-sm form-control' %>
+                    <p><strong>Date de fin :</strong></p>
+                    <!-- <input type="text" class="input-sm form-control" name="end" /> -->
+                    <%= f.input_field :end_day, as: :string, class: 'input-sm form-control' %>
+                  </div>
+                  <div class="">
+                    <%= f.submit "Book this boat", class: "btn btn-success" %>
+                    <% end %>
+                  </div>
+              <% else %>
+                <h3>It's your boat !</h3>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
 
-<% if current_user != @boat.user %>
 
-    <%= simple_form_for [@boat, @booking], url: boat_bookings_path(@boat), :method => :post do |f| %>
-    <div class="input-daterange input-group" id="datepicker">
-      <!-- <input type="text" class="input-sm form-control" name="start" /> -->
-      <%= f.input_field :start_day, as: :string, class: 'input-sm form-control' %>
-
-      <span class="input-group-addon">to</span>
-
-      <!-- <input type="text" class="input-sm form-control" name="end" /> -->
-      <%= f.input_field :end_day, as: :string, class: 'input-sm form-control' %>
+<div class="white-wrapper">
+  <div class="horse-description">
+    <div class="text-center">
+      <h3>The Boat</h3>
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 col-lg-6">
+          <p><strong> Nom :</strong><%= @boat.name %></p>
+          <p><strong> Category : </strong> <%= @boat.category.name %></p>
+          <p><strong> Horse power : </strong> <%= @boat.horse_power %></p>
+          <p><strong> Capacity : </strong> <%= @boat.capacity %></p>
+          <p><strong> Size : </strong> <%= @boat.size %></p>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-lg-6">
+          <p><strong> Description : </strong> <%= @boat.description %></p>
+          <p><strong> Note moyenne:</strong>
+            <i class="fa fa-star" aria-hidden="true" id="rating-1"></i>
+            <i class="fa fa-star" aria-hidden="true" id="rating-1"></i>
+            <i class="fa fa-star" aria-hidden="true" id="rating-1"></i>
+            <i class="fa fa-star" aria-hidden="true" id="rating-1"></i>
+            <i class="fa fa-star" aria-hidden="true" id="rating-1"></i>
+           5</p>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
 
-      <%= f.submit "Book this boat", class: "btn btn-success" %>
-      <% end %>
-<% else %>
-  <h3>It's your boat !</h3>
-<% end %>
+
+
+
+<!-- <h1> <%= @boat.name %></h1> -->
