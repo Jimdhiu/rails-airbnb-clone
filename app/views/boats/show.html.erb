@@ -1,12 +1,12 @@
  <h1> <%= @boat.name %></h1>
-<p>Address<%= @boat.address %></p>
+<p>Address: <%= @boat.address %></p>
 <p><%= @boat.description %></p>
-<p>capacity<%= @boat.capacity %></p>
-<p>price<%= @boat.price %></p>
-<p>caution<%= @boat.caution %></p>
-<p>size<%= @boat.size %></p>
-<p>Category<%= @boat.category.name %></p>
-<p>Horse power<%= @boat.horse_power %></p>
+<p>capacity: <%= @boat.capacity %></p>
+<p id="boat_price">price: <%= @boat.price %></p>
+<p>caution: <%= @boat.caution %></p>
+<p>size: <%= @boat.size %></p>
+<p>Category: <%= @boat.category.name %></p>
+<p>Horse power: <%= @boat.horse_power %></p>
 <% if @boat.photo? %>
   <%= cl_image_tag @boat.photo.path, width: 200, height: 300, crop: :fill %>
 <% end %>
@@ -16,12 +16,12 @@
     <%= simple_form_for [@boat, @booking], url: boat_bookings_path(@boat), :method => :post do |f| %>
     <div class="input-daterange input-group" id="datepicker">
       <!-- <input type="text" class="input-sm form-control" name="start" /> -->
-      <%= f.input_field :start_day, as: :string, class: 'input-sm form-control' %>
+      <%= f.input_field :start_day, as: :string, class: 'input-sm form-control', id: 'start' %>
 
       <span class="input-group-addon">to</span>
 
       <!-- <input type="text" class="input-sm form-control" name="end" /> -->
-      <%= f.input_field :end_day, as: :string, class: 'input-sm form-control' %>
+      <%= f.input_field :end_day, as: :string, class: 'input-sm form-control', id: 'end' %>
     </div>
 
       <%= f.submit "Book this boat", class: "btn btn-success" %>
@@ -29,3 +29,6 @@
 <% else %>
   <h3>It's your boat !</h3>
 <% end %>
+
+<p><strong>Nombre de jours :</strong> <span id="days"></span></p>
+  <p><strong>Prix total :</strong><span id="price"></span> €</p>
