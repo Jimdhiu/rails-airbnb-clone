@@ -1,3 +1,7 @@
+<% if @boat.photo? %>
+  <div class="banner-boats" style="background-image: linear-gradient(-150deg, rgba(0,101,168,0) 0%, rgba(0,36,61,0) 0%), url('<%= cl_image_path @boat.photo.path %>')">
+  </div>
+<% end %>
 <div class="container">
   <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-1">
