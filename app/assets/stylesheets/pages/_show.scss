@@ -6,7 +6,8 @@
   justify-content: center;
 }
 
-.container {
+.blueblue {
+  background-color: #132457;
   color: white;
 }
 
@@ -18,12 +19,20 @@
   color: black;
 }
 
-h1{
-  text-align: center;
+.nameicon {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
-body {
-  background-color: $blue;
+#user-icon {
+  color: $yellow;
+  font-size: 70px;
+}
+
+
+h1{
+  text-align: center;
 }
 
 .user {
@@ -41,4 +50,8 @@ body {
 .white-wrapper {
   background-color: white;
   width: 100;
+}
+
+.margin {
+  margin: 15px;
 }
