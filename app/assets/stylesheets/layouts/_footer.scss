@@ -1,5 +1,5 @@
 .footer {
-  background-color: lightgrey;
+  background-color: #222222;
   display: flex;
   justify-content: space-between;
   bottom: 0px;
@@ -10,16 +10,16 @@
   margin-top: 25px;
 
   a {
-    color: #132457;
+    color: white;
 
     &:hover {
-      color: #58acc4;
+      color: white;
     }
   }
 }
 
 .copyright {
-  color: #132457;
+  color: white;
   padding: 0px 25px;
   margin-top: 25px;
 }
@@ -34,9 +34,10 @@
   }
   a {
     text-decoration: none;
-    color: #132457;
+    color: white;
+    display: flex;
     &:hover {
-      color: #132457;
+      color: white;
     }
   }
 }
