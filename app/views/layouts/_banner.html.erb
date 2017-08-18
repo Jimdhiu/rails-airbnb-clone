@@ -5,14 +5,14 @@
         <%= f.input :address ,input_html: { id: 'boat_address' }, placeholder: "Où vous voulez louer", label: false %>
 
         <div class="blue required search_category_id">
-          <input class="required" type="checkbox" id="search_category_id_1" name="search[category_id][]">
+          <input class="required" type="checkbox" id="search_category_id_1" name="search[category_id]" value="<%= @categories.first.id %>">
           <label for="search_category_id_1">
             <div class="custom-checkbox">
               <img src="http://icon-icons.com/icons2/390/PNG/512/sailboat_38507.png" class="images_petit" alt="sailing icon">
               Voilier
             </div>
           </label>
-          <input class="required" type="checkbox" id="search_category_id_2" name="search[category_id][]">
+          <input class="required" type="checkbox" id="search_category_id_2" name="search[category_id]" value="<%= @categories.last.id %>">
           <label for="search_category_id_2">
             <div class="custom-checkbox">
               <img src="https://cdn3.iconfinder.com/data/icons/transport-05-set-of-ships-and-boats-1/110/Ships_and_boats_13-512.png" class="images_petit" alt="sailing icon">
