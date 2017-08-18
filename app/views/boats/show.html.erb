@@ -19,9 +19,6 @@
           <p><strong>Price :</strong> <%= @boat.price %> €</p>
           <p><strong>Caution :</strong> <%= @boat.caution %> €</p>
           <div class="form-inline">
-            <% if @boat.photo? %>
-              <%= cl_image_tag @boat.photo.path, width: 200, height: 300, crop: :fill %>
-            <% end %>
             <div class="form-inline">
               <% if current_user != @boat.user %>
                 <%= simple_form_for [@boat, @booking], url: boat_bookings_path(@boat), :method => :post do |f| %>
