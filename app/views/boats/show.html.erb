@@ -19,35 +19,34 @@
               <p><strong> Size : </strong> <%= @boat.size %></p>
             </div>
         </div>
-          <div class="">
-            <p><i class="fa fa-map-marker" aria-hidden="true"></i><strong> Address : </strong><%= @boat.address %></p>
-          </div>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="booking-new text-center">
-          <p><strong>Price :</strong> <span id="boat_price"><%= @boat.price %></span> €</p>
-          <p><strong>Caution :</strong> <%= @boat.caution %> €</p>
-          <div class="form-inline">
+        <div class="col-xs-12 col-sm-4">
+          <div class="booking-new text-center">
+            <p><strong>Price :</strong> <span id="boat_price"><%= @boat.price %></span> €</p>
+            <p><strong>Caution :</strong> <%= @boat.caution %> €</p>
             <div class="form-inline">
-              <% if current_user != @boat.user %>
-                <%= simple_form_for [@boat, @booking], url: boat_bookings_path(@boat), :method => :post do |f| %>
-                  <div class="input-daterange input-group" id="datepicker">
-                    <!-- <input type="text" class="input-sm form-control" name="start" /> -->
-                    <p><strong>Date de début :</strong></p>
-                    <%= f.input_field :start_day, as: :string, class: 'input-sm form-control', id: 'start' %>
-                    <p><strong>Date de fin :</strong></p>
-                    <!-- <input type="text" class="input-sm form-control" name="end" /> -->
-                    <%= f.input_field :end_day, as: :string, class: 'input-sm form-control', id: 'end' %>
+              <div class="form-inline">
+                <% if current_user != @boat.user %>
+                  <%= simple_form_for [@boat, @booking], url: boat_bookings_path(@boat), :method => :post do |f| %>
+                    <div class="input-daterange input-group" id="datepicker">
+                      <!-- <input type="text" class="input-sm form-control" name="start" /> -->
+                      <p><strong>Date de début :</strong></p>
+                      <%= f.input_field :start_day, as: :string, class: 'input-sm form-control', id: 'start' %>
+                      <p><strong>Date de fin :</strong></p>
+                      <!-- <input type="text" class="input-sm form-control" name="end" /> -->
+                      <%= f.input_field :end_day, as: :string, class: 'input-sm form-control', id: 'end' %>
+                    </div>
+                    <div class="">
+                      <p><strong>Nombre de jours :</strong> <span id="days"></span></p>
+                      <p><strong>Prix total : </strong><span id="price"></span> €</p>
+                    <div class="margin">
+                      <%= f.submit "Book this boat", class: "btn btn-success" %>
+                      <% end %>
+                    </div>
                   </div>
-                  <div class="">
-                    <p><strong>Nombre de jours :</strong> <span id="days"></span></p>
-                    <p><strong>Prix total : </strong><span id="price"></span> €</p>
-                    <%= f.submit "Book this boat", class: "btn btn-success" %>
-                    <% end %>
-                  </div>
-              <% else %>
-                <h3>It's your boat !</h3>
-              <% end %>
+                <% else %>
+                  <h3>It's your boat !</h3>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
